@@ -4,9 +4,9 @@
 Acme-Tiny Install
 =================
 
-This is an ansible role for installing acme-tiny, first by trying the distro way but, if this is not working, by directly getting the source from 'diafygi' on github - this can be overridden if an URL/Checksum is specified.
+This is an ansible role for installing acme-tiny by directly getting the source from 'diafygi' on github - this can be overridden if an URL/Checksum is specified.
 
-The role is meant to be run on the host that will later also play the inofix.acme-tiny-setup and the inofix.acme-tiny-sign role.
+The role is meant to be run on the host that will later also play the inofix.acme-tiny-sign role.
 
 Why we do not use one of the existing roles?
 
@@ -16,7 +16,7 @@ Why we do not use one of the existing roles?
 State
 -----
 
-UNSTABLE! We are just migrating from zwischenloesung.acme-tiny-install.
+preSTABLE (Feature-Freeze/RC)
 
 
 Promise
@@ -43,13 +43,14 @@ Role Variables
 --------------
 
 * http\_proxy (optional, string)
+* app\_\_acme\_\_bin\_dir - optional, default='/usr/local/bin'
 * app\_\_acme\_\_tiny\_\_checksum (optional, string: default="sha256:bcd7cb56c280543c929cb4b7b2d1ed2d7ebabdae74fedc96b6a63f218c0b8ace")
 * app\_\_acme\_\_tiny\_\_download\_upstream (optional, string: default="https://raw.githubusercontent.com/diafygi/acme-tiny/master/acme\_tiny.py")
 
 Dependencies
 ------------
 
-* Galaxy-Role: inofix.yapkg
+[//]: # (* Galaxy-Role: inofix.yapkg)
 * The Download-Source: default URL/checksum might change..
 
 Example Playbook
@@ -59,10 +60,14 @@ Example Playbook
       roles:
          - inofix.acme-tiny-install
 
+(See inofix.acme-setup)
+
+
 License
 -------
 
 GPLv3
+
 
 Author Information
 ------------------
